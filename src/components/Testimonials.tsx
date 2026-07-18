@@ -1,54 +1,53 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
 import { useTestimonials } from '@/data/testimonials';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Testimonials: React.FC = () => {
-    const { isLoading } = useLanguage();
+    const { isLoading, language } = useLanguage();
     const testimonials = useTestimonials();
 
     if (isLoading) {
         return (
-            <div className="grid gap-14 max-w-lg w-full mx-auto lg:gap-8 lg:grid-cols-3 lg:max-w-full">
+            <div className="mx-auto grid w-full max-w-lg gap-6 lg:max-w-full lg:grid-cols-3">
                 {[1, 2, 3].map((i) => (
-                    <div key={i} className="">
-                        <div className="flex items-center mb-4 w-full justify-center lg:justify-start">
-                            <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse"></div>
-                            <div className="ml-4">
-                                <div className="w-24 h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mb-2"></div>
-                                <div className="w-16 h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
-                            </div>
+                    <div key={i} className="steel-panel rounded-[2rem] p-8">
+                        <div className="mb-6 flex items-center justify-between">
+                            <div className="h-11 w-11 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700" />
+                            <div className="h-2 w-24 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700" />
                         </div>
-                        <div className="w-full h-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="mb-3 h-6 w-3/4 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                        <div className="h-24 w-full animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                     </div>
                 ))}
             </div>
         );
     }
 
+    const themes = language === 'th'
+        ? ['ลด Downtime', 'ผ่านมาตรฐานมั่นใจ', 'ซัพพอร์ตไวในไทย']
+        : ['Lower Downtime', 'Audit Ready', 'Fast Local Support'];
+
     return (
-        <div className="grid gap-14 max-w-lg w-full mx-auto lg:gap-8 lg:grid-cols-3 lg:max-w-full">
+        <div className="mx-auto grid w-full max-w-lg gap-6 lg:max-w-full lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-                <div
-                    key={index}
-                    className=""
-                >
-                    <div className="flex items-center mb-4 w-full justify-center lg:justify-start">
-                        <Image
-                            src={testimonial.avatar}
-                            alt={`${testimonial.name} avatar`}
-                            width={50}
-                            height={50}
-                            className="rounded-full shadow-md"
-                        />
-                        <div className="ml-4">
-                            <h3 className="text-lg font-semibold text-secondary dark:text-blue-400">{testimonial.name}</h3>
-                            <p className="text-sm text-foreground-accent dark:text-gray-400">{testimonial.role}</p>
+                <div key={index} className="steel-panel rounded-[2rem] p-8">
+                    <div className="mb-6 flex items-center justify-between gap-4">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-primary dark:bg-[var(--primary)]/20 dark:text-[var(--primary-accent)]">
+                            <HiOutlineChatBubbleLeftRight className="h-5 w-5" />
                         </div>
+                        <span className="rounded-full border border-[var(--primary)]/15 bg-white/70 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-secondary dark:border-white/10 dark:bg-white/5 dark:text-[var(--foreground-accent)]">
+                            {themes[index] ?? 'Trusted Performance'}
+                        </span>
                     </div>
-                    <p className="text-foreground-accent dark:text-gray-400 text-center lg:text-left">&quot;{testimonial.message}&quot;</p>
+
+                    <p className="text-xl font-semibold leading-relaxed text-foreground md:text-2xl">
+                        “{testimonial.message}”
+                    </p>
+
+                    <div className="mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-[var(--signal)]" />
                 </div>
             ))}
         </div>

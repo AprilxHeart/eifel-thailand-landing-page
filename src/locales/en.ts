@@ -66,7 +66,7 @@ export const en = {
   // Testimonials
   testimonials: {
     title: 'Customer Reviews',
-    subtitle: 'Feedback from real users'
+    subtitle: 'Decision-driving proof points for operations, engineering, and procurement teams'
   },
   
   // Team
@@ -336,19 +336,19 @@ export const en = {
   // Testimonials
   testimonialsList: [
     {
-      name: 'Mr. Somchai Wongutsah',
-      role: 'Industrial Plant Engineer',
-      message: 'We have been using Eifel EH Series pumps for 3 years. Excellent performance and truly energy-saving. MEI value above 0.7 significantly reduces our operating costs. Most importantly, easy maintenance with Back Pull-Out Design really helps.'
+      name: 'Operations Team',
+      role: 'Manufacturing Plant',
+      message: 'Stable performance day after day helps our line run continuously and cuts the risk of costly downtime.'
     },
     {
-      name: 'Ms. Nida Sukcharoen',
-      role: 'Food Manufacturing Plant Manager',
-      message: 'Switched to Eifel EHF Series UL Listed fire pumps, giving us confidence in our safety systems. Passed inspections by authorities without issues. Truly international quality standards.'
+      name: 'Safety & Compliance Team',
+      role: 'Industrial Facility',
+      message: 'International-standard pumps make approvals, inspections, and project handover feel much more confident.'
     },
     {
-      name: 'Mr. Wichai Rungruang',
-      role: 'Maintenance Department Head',
-      message: 'Eifel EJ Series sewage pumps are excellent. Handles solids up to 76mm. Features maintenance holes and wear plates. Easy to clean, reduces maintenance time. Our team saves a lot of time.'
+      name: 'Maintenance Team',
+      role: 'Service Department',
+      message: 'Fast local support and easier maintenance help our team solve issues quickly without dragging out repair time.'
     }
   ],
 
