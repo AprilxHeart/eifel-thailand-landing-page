@@ -27,7 +27,7 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>('th');
-  const [isLoading, setIsLoading] = useState(true);
+  const isLoading = false;
 
   useEffect(() => {
     const initializeLanguage = async () => {
@@ -47,8 +47,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         console.warn('Failed to initialize language:', error);
         // Fallback to Thai
         setLanguageState('th');
-      } finally {
-        setIsLoading(false);
       }
     };
 

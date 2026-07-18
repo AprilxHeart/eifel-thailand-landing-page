@@ -5,27 +5,27 @@ import { IStats } from "@/types";
 
 export const stats: IStats[] = [
     {
-        title: "1000+",
+        title: "2004",
         icon: <PiDropFill size={34} className="text-blue-500" />,
         description: {
-            th: "โครงการที่ติดตั้งสำเร็จทั่วประเทศไทย ครอบคลุมทุกอุตสาหกรรม",
-            en: "Successfully installed projects across Thailand, covering all industries"
+            th: "ปีที่ผู้ผลิต EIFEL Pump เริ่มต้นพัฒนาและผลิตปั๊มน้ำอุตสาหกรรม",
+            en: "Year EIFEL Pump began developing and manufacturing industrial pump products"
         }
     },
     {
-        title: "99.8%",
+        title: "UL / ISO",
         icon: <BsFillStarFill size={34} className="text-yellow-500" />,
         description: {
-            th: "ระดับความพึงพอใจจากลูกค้า จากการให้บริการและคุณภาพที่ยอดเยี่ยม",
-            en: "Customer satisfaction rate from excellent service and quality"
+            th: "มาตรฐานและการรับรองที่พบในเอกสารแบรนด์สำหรับสินค้าและระบบคุณภาพ",
+            en: "Standards and certifications referenced in brand and quality documents"
         }
     },
     {
-        title: "24/7",
+        title: "TH Team",
         icon: <BsShieldCheck size={34} className="text-green-600" />,
         description: {
-            th: "บริการหลังการขายและซ่อมบำรุง พร้อมทีมช่างผู้เชี่ยวชาญ",
-            en: "After-sales service and maintenance with expert technician team"
+            th: "ทีมไทยช่วยให้คำปรึกษา ออกแบบ ติดตั้ง ซ่อมบำรุง และจัดหาอะไหล่",
+            en: "Thai team for consulting, system design, installation, maintenance, and parts"
         }
     }
 ];

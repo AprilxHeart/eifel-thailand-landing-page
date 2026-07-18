@@ -52,14 +52,14 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
     return (
         <section className="benefit-section">
             <motion.div
-                className="flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
+                className="grid items-center gap-8 border-b border-black/10 py-12 last:border-b-0 lg:grid-cols-2 lg:gap-16 dark:border-white/10"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true }}
             >
                 <div
-                    className={clsx("flex flex-wrap items-center w-full max-w-lg", { "justify-start": imageAtRight, "lg:order-1 justify-end": !imageAtRight })}
+                    className={clsx("flex flex-wrap items-center w-full", { "justify-start": imageAtRight, "lg:order-1 justify-end": !imageAtRight })}
                     
                 >
                     <div className="w-full text-center lg:text-left ">
@@ -73,7 +73,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                                 </h3>
                             </SectionTitle>
 
-                            <p className="mt-1.5 mx-auto lg:ml-0 leading-normal text-foreground-accent dark:text-gray-400">
+                            <p className="mt-4 mx-auto lg:ml-0 leading-8 text-foreground-accent">
                                 {description}
                             </p>
                         </motion.div>
@@ -87,8 +87,9 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
                 </div>
 
                 <div className={clsx("mt-5 lg:mt-0", { "lg:order-2": imageAtRight })}>
-                    <div className={clsx("w-fit flex", { "justify-start": imageAtRight, "justify-end": !imageAtRight })}>
-                        <Image src={imageSrc} alt={title} width="384" height="762" quality={100} className="lg:ml-0" />
+                    <div className={clsx("steel-panel relative mx-auto flex aspect-[4/3] w-full max-w-xl items-center justify-center overflow-hidden p-6", { "justify-start": imageAtRight, "justify-end": !imageAtRight })}>
+                        <div className="absolute inset-0 industrial-grid opacity-50" />
+                        <Image src={imageSrc} alt={title} width="520" height="520" quality={100} className="relative z-10 max-h-[360px] w-auto object-contain" />
                     </div>
                 </div>
             </motion.div>

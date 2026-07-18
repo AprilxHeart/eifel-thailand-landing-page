@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
+import { FiCheckCircle, FiDroplet, FiSettings, FiShield, FiTruck, FiZap } from 'react-icons/fi';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Logos: React.FC = () => {
@@ -24,118 +26,90 @@ const Logos: React.FC = () => {
         );
     }
 
+    const industries = [
+        { th: 'โรงงาน', en: 'Factories', icon: FiSettings },
+        { th: 'อาคารและโรงแรม', en: 'Buildings & Hotels', icon: FiDroplet },
+        { th: 'ระบบดับเพลิง', en: 'Fire Systems', icon: FiShield },
+        { th: 'บำบัดน้ำเสีย', en: 'Wastewater', icon: FiZap },
+        { th: 'เทศบาล', en: 'Municipal', icon: FiTruck },
+    ];
+
     return (
-        <section id="logos" className="py-16 px-5 bg-gray-50 dark:bg-gray-900 transition-colors">
-            <div className="max-w-6xl mx-auto text-center">
-                <p className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-8">
-                    {language === 'th' 
-                        ? <>ไว้วางใจโดยองค์กรชั้นนำ <span className="text-primary dark:text-blue-400 font-bold">1000+</span> แห่งทั่วประเทศไทย</>
-                        : <>Trusted by <span className="text-primary dark:text-blue-400 font-bold">1000+</span> leading organizations across Thailand</>
-                    }
-                </p>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60 hover:opacity-80 transition-opacity duration-300">
-                    {/* โรงพยาบาล */}
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-2">
-                            <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                            {language === 'th' ? 'โรงพยาบาล' : 'Hospitals'}
-                        </span>
-                    </div>
-
-                    {/* โรงงานอุตสาหกรรม */}
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-2">
-                            <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                            {language === 'th' ? 'โรงงาน' : 'Factories'}
-                        </span>
-                    </div>
-
-                    {/* โรงแรม */}
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-2">
-                            <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                            {language === 'th' ? 'โรงแรม' : 'Hotels'}
-                        </span>
-                    </div>
-
-                    {/* ห้างสรรพสินค้า */}
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mb-2">
-                            <svg className="w-8 h-8 text-orange-600 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                            {language === 'th' ? 'ห้างสรรพสินค้า' : 'Malls'}
-                        </span>
-                    </div>
-
-                    {/* ศูนย์การค้า */}
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mb-2">
-                            <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                            {language === 'th' ? 'ศูนย์การค้า' : 'Shopping Centers'}
-                        </span>
-                    </div>
-
-                    {/* อพาร์ทเมนต์ */}
-                    <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mb-2">
-                            <svg className="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
-                            {language === 'th' ? 'อพาร์ทเมนต์' : 'Apartments'}
-                        </span>
+        <section id="logos" className="section-band bg-background px-5 py-12 transition-colors">
+            <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+                <div>
+                    <p className="text-sm font-semibold uppercase text-primary">
+                        {language === 'th' ? 'พื้นที่ใช้งานจริง' : 'Real operating environments'}
+                    </p>
+                    <h2 className="mt-3 max-w-2xl text-2xl font-bold leading-tight text-foreground md:text-4xl">
+                        {language === 'th'
+                            ? 'ออกแบบให้เข้ากับงานระบบที่ต้องเดินเครื่องต่อเนื่อง'
+                            : 'Built for systems that need to keep running'}
+                    </h2>
+                    <p className="mt-4 max-w-xl text-base leading-8 text-foreground-accent">
+                        {language === 'th'
+                            ? 'เลือกปั๊มตามสภาพหน้างานจริง ทั้งแรงดัน อัตราการไหล ของเหลว มาตรฐานความปลอดภัย และการดูแลหลังติดตั้ง'
+                            : 'Pump selection follows actual site conditions, including pressure, flow rate, liquid type, safety standards, and after-sales service.'}
+                    </p>
+                    <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                        {industries.map((industry) => {
+                            const Icon = industry.icon;
+                            return (
+                                <div key={industry.en} className="border border-black/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5">
+                                    <Icon className="h-5 w-5 text-primary" />
+                                    <p className="mt-3 text-sm font-semibold text-foreground">
+                                        {industry[language]}
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
 
-                {/* คำรับรอง */}
-                <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                        {language === 'th' ? 'การรับรองคุณภาพระดับสากล' : 'International Quality Certifications'}
-                    </p>
-                    <div className="flex flex-wrap justify-center items-center gap-8 opacity-50">
-                        <div className="text-center">
-                            <div className="text-lg font-bold text-gray-700 dark:text-gray-300">ISO 9001</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                                {language === 'th' ? 'มาตรฐานคุณภาพ' : 'Quality Standard'}
+                <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="relative min-h-[360px] overflow-hidden bg-luxury-black">
+                        <Image
+                            src="/images/working/34332_0.jpg"
+                            alt="EIFEL installation work"
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 430px"
+                            className="object-cover opacity-86"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+                        <div className="absolute bottom-0 p-6 text-white">
+                            <p className="text-sm font-semibold text-[var(--signal)]">Site support</p>
+                            <p className="mt-2 text-xl font-bold">
+                                {language === 'th' ? 'สำรวจหน้างานและติดตั้ง' : 'Site survey and installation'}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="grid gap-3">
+                        <div className="relative min-h-[172px] overflow-hidden bg-luxury-black">
+                            <Image
+                                src="/images/Trust/output-003.png"
+                                alt="EIFEL certification document"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 360px"
+                                className="object-cover opacity-90"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent" />
+                            <div className="absolute bottom-0 p-5 text-white">
+                                <FiCheckCircle className="h-5 w-5 text-[var(--signal)]" />
+                                <p className="mt-2 font-semibold">ISO / UL / PSB</p>
                             </div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-lg font-bold text-gray-700 dark:text-gray-300">UL Listed</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                                {language === 'th' ? 'ความปลอดภัย' : 'Safety Standard'}
-                            </div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-lg font-bold text-gray-700 dark:text-gray-300">CE Mark</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                                {language === 'th' ? 'มาตรฐานยุโรป' : 'European Standard'}
-                            </div>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-lg font-bold text-gray-700 dark:text-gray-300">TIS</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                                {language === 'th' ? 'มาตรฐานไทย' : 'Thai Standard'}
-                            </div>
+                        <div className="border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-white/5">
+                            <p className="text-sm font-semibold uppercase text-primary">
+                                {language === 'th' ? 'บริการครบวงจร' : 'End-to-end service'}
+                            </p>
+                            <p className="mt-3 text-2xl font-bold text-foreground">
+                                {language === 'th' ? 'เลือกสเปก ส่งมอบ ติดตั้ง ซ่อม อะไหล่' : 'Select, deliver, install, repair, supply parts'}
+                            </p>
+                            <p className="mt-3 text-sm leading-7 text-foreground-accent">
+                                {language === 'th'
+                                    ? 'เหมาะกับทีมจัดซื้อ วิศวกร และฝ่ายซ่อมบำรุงที่ต้องการคุยกับทีมเทคนิคในไทย'
+                                    : 'Made for procurement, engineering, and maintenance teams that need local technical support.'}
+                            </p>
                         </div>
                     </div>
                 </div>

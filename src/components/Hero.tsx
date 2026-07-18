@@ -3,12 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FiArrowRight, FiMail, FiPhoneCall, FiShield } from 'react-icons/fi';
 
 import { heroDetails } from '@/data/hero';
+import { siteDetails } from '@/data/siteDetails';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero: React.FC = () => {
-    const { t, isLoading } = useLanguage();
+    const { t, language, isLoading } = useLanguage();
 
     if (isLoading) {
         return (
@@ -25,90 +27,136 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative flex items-center justify-center min-h-screen pb-0 pt-32 md:pt-40 px-5"
+            className="relative isolate min-h-[92svh] overflow-hidden bg-luxury-black px-5 pb-12 pt-28 text-white md:pt-32"
         >
-            <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
-                <div className="absolute inset-0 h-full w-full bg-hero-background bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]">
+            <div className="absolute inset-0 -z-20">
+                <Image
+                    src="/images/working/34327_0.jpg"
+                    alt="EIFEL pump manufacturing and engineering facility"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                />
+            </div>
+            <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(10,17,22,0.94)_0%,rgba(10,17,22,0.8)_42%,rgba(10,17,22,0.38)_100%)]" />
+            <div className="absolute inset-0 -z-10 industrial-grid opacity-35" />
+            <div className="absolute bottom-0 left-0 right-0 -z-10 h-36 bg-gradient-to-t from-background to-transparent" />
+
+            <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
+                <div className="max-w-3xl">
+                    <div className="mb-6 inline-flex items-center gap-2 border-l-4 border-[var(--signal)] bg-white/10 px-4 py-3 text-sm font-medium text-white backdrop-blur">
+                        <FiShield className="h-4 w-4 text-[var(--signal)]" />
+                        {language === 'th'
+                            ? 'ตัวแทนจำหน่ายและทีมบริการ EIFEL ในประเทศไทย'
+                            : 'EIFEL distributor and service team in Thailand'}
+                    </div>
+                
+                    <h1 className="max-w-4xl text-5xl font-bold leading-[1.08] text-white md:text-6xl lg:text-7xl">
+                        Eifel Thailand
+                    </h1>
+                
+                    <p className="mt-5 max-w-2xl text-xl font-semibold leading-relaxed text-[var(--signal)] md:text-2xl">
+                        {language === 'th'
+                            ? 'ปั๊มน้ำอุตสาหกรรม ปั๊มดับเพลิง และระบบบำบัดน้ำเสีย สำหรับโรงงานและอาคารที่ต้องการความเชื่อถือสูง'
+                            : 'Industrial, fire protection, and wastewater pump solutions for facilities that cannot afford downtime'}
+                    </p>
+                
+                    <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 md:text-lg">
+                        {t.hero.description}
+                    </p>
+                    
+                    <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                        <Link 
+                            href="#pricing" 
+                            className="group inline-flex min-h-[52px] items-center justify-center gap-3 bg-primary px-7 py-4 text-base font-semibold text-white shadow-2xl shadow-black/25 transition hover:bg-primary-accent"
+                        >
+                            {t.hero.ctaPrimary}
+                            <FiArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+                        </Link>
+                        <Link 
+                            href="#contact" 
+                            className="inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/45 bg-white/10 px-7 py-4 text-base font-semibold text-white backdrop-blur transition hover:bg-white hover:text-foreground"
+                        >
+                            <FiMail className="h-5 w-5" />
+                            {t.hero.ctaSecondary}
+                        </Link>
+                    </div>
+
+                    <div className="mt-9 grid max-w-2xl grid-cols-2 gap-px overflow-hidden border border-white/16 bg-white/16 text-sm sm:grid-cols-4">
+                        {[
+                            { value: 'UL', label: language === 'th' ? 'Fire pump' : 'Fire pump' },
+                            { value: 'ISO', label: language === 'th' ? 'Quality system' : 'Quality system' },
+                            { value: 'TH', label: language === 'th' ? 'ทีมไทย' : 'Local team' },
+                            { value: 'Service', label: language === 'th' ? 'ซ่อมและอะไหล่' : 'Repair and parts' },
+                        ].map((item) => (
+                            <div key={item.value} className="bg-black/25 px-4 py-4 backdrop-blur">
+                                <div className="text-xl font-bold text-white">{item.value}</div>
+                                <div className="mt-1 text-xs uppercase tracking-normal text-white/68">{item.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+                    <div className="absolute inset-x-8 bottom-4 h-24 bg-primary/30 blur-3xl" />
+                    <div className="relative ml-auto border border-white/18 bg-white/10 p-4 shadow-2xl backdrop-blur-md">
+                        <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                            <Image
+                                src={heroDetails.centerImageSrc}
+                                alt="EIFEL industrial pump"
+                                fill
+                                priority
+                                sizes="(max-width: 1024px) 90vw, 520px"
+                                className="object-contain p-6"
+                            />
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-luxury-black/90 to-transparent p-5">
+                                <p className="text-sm font-semibold text-white">
+                                    EA / EH / EHF / ESF / EJ Series
+                                </p>
+                                <p className="mt-1 text-xs text-white/70">
+                                    {language === 'th'
+                                        ? 'เลือกสเปก ติดตั้ง และดูแลหลังการขายโดยทีมไทย'
+                                        : 'Specification, installation, and local after-sales support'}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a
+                        href={`tel:${siteDetails.companyInfo.phone}`}
+                        className="absolute -bottom-5 right-4 inline-flex min-h-[52px] items-center gap-3 bg-[var(--signal)] px-5 py-3 text-sm font-bold text-luxury-black shadow-xl transition hover:brightness-105 sm:right-8"
+                    >
+                        <FiPhoneCall className="h-5 w-5" />
+                        {siteDetails.companyInfo.phone}
+                    </a>
                 </div>
             </div>
 
-            <div className="absolute left-0 right-0 bottom-0 backdrop-blur-[2px] h-40 bg-gradient-to-b from-transparent via-[rgba(233,238,255,0.5)] to-[rgba(202,208,230,0.5)] dark:via-[rgba(30,41,59,0.5)] dark:to-[rgba(15,23,42,0.5)]">
-            </div>
-
-            <div className="text-center max-w-7xl mx-auto">
-                <div className="mb-8">
-                    <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                        {t.hero.trustBadge}
-                    </span>
-                </div>
-                
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground max-w-5xl mx-auto mb-6 leading-tight">
-                    {t.hero.title}
-                    <br />
-                    <span className="text-primary">{t.hero.subtitle}</span>
-                </h1>
-                
-                <p className="mt-6 text-lg md:text-xl text-foreground-accent max-w-3xl mx-auto leading-relaxed mb-10">
-                    {t.hero.description}
-                </p>
-                
-                <div className="mt-10 flex flex-col sm:flex-row items-center gap-6 w-fit mx-auto">
-                    <Link 
-                        href="#pricing" 
-                        className="bg-primary hover:bg-primary-accent text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-base min-w-[200px] flex items-center justify-center gap-3"
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
-                        {t.hero.ctaPrimary}
-                    </Link>
-                    <Link 
-                        href="#cta" 
-                        className="bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 text-primary border-2 border-primary font-semibold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-base min-w-[200px] flex items-center justify-center gap-3"
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        {t.hero.ctaSecondary}
-                    </Link>
-                </div>
-
-                {/* Hero Image with enhanced styling */}
-                <div className="relative mt-16 md:mt-20">
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-3xl"></div>
-                    <Image
-                        src={heroDetails.centerImageSrc}
-                        width={500}
-                        height={500}
-                        quality={100}
-                        sizes="(max-width: 768px) 100vw, 500px"
-                        priority={true}
-                        unoptimized={true}
-                        alt="EIFEL Water Pump - ปั๊มน้ำคุณภาพสูง"
-                        className='relative mx-auto z-10 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500'
-                    />
-                    {/* Floating elements */}
-                    <div className="absolute -top-4 -left-4 w-20 h-20 bg-primary/20 rounded-full blur-xl"></div>
-                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/20 rounded-full blur-xl"></div>
-                </div>
-
-                {/* Trust indicators */}
-                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
-                    <div className="text-center">
-                        <div className="text-2xl font-bold text-primary">1000+</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">{t.hero.stats.projects}</div>
+            <div className="relative mx-auto mt-12 max-w-7xl border-t border-white/16 pt-6">
+                <div className="grid gap-4 text-white/76 md:grid-cols-3">
+                    <div>
+                        <p className="text-sm font-semibold text-white">
+                            {language === 'th' ? 'Industrial pump supply' : 'Industrial pump supply'}
+                        </p>
+                        <p className="mt-1 text-sm">
+                            {language === 'th' ? 'ปั๊มอุตสาหกรรม ปั๊มน้ำเสีย ปั๊มสุญญากาศ' : 'Industrial, wastewater, and vacuum pump series'}
+                        </p>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl font-bold text-primary">20+</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">{t.hero.stats.experience}</div>
+                    <div>
+                        <p className="text-sm font-semibold text-white">
+                            {language === 'th' ? 'Fire protection' : 'Fire protection'}
+                        </p>
+                        <p className="mt-1 text-sm">
+                            {language === 'th' ? 'ปั๊มดับเพลิงซีรีส์ EHF / ESF สำหรับระบบความปลอดภัย' : 'EHF / ESF fire pump series for safety systems'}
+                        </p>
                     </div>
-                    <div className="text-center">
-                        <div className="text-2xl font-bold text-primary">24/7</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">{t.hero.stats.support}</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-2xl font-bold text-primary">99.8%</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">{t.hero.stats.satisfaction}</div>
+                    <div>
+                        <p className="text-sm font-semibold text-white">
+                            {language === 'th' ? 'Local service team' : 'Local service team'}
+                        </p>
+                        <p className="mt-1 text-sm">
+                            {language === 'th' ? 'ให้คำปรึกษา ออกแบบ ติดตั้ง ซ่อม และจัดหาอะไหล่' : 'Consulting, installation, repair, and spare parts sourcing'}
+                        </p>
                     </div>
                 </div>
             </div>

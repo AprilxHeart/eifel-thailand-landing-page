@@ -119,7 +119,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({ tiers }) => {
     return (
         <div className="relative w-full">
             {/* Carousel Container */}
-            <div className="relative overflow-hidden rounded-xl">
+            <div className="relative overflow-hidden">
                 <div 
                     ref={carouselRef}
                     className="flex transition-transform duration-300 ease-in-out select-none"
@@ -153,19 +153,19 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({ tiers }) => {
                     <button
                         onClick={prevSlide}
                         disabled={isTransitioning}
-                        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white dark:bg-gray-800/90 dark:hover:bg-gray-800 shadow-lg rounded-full p-2 transition-all duration-200 disabled:opacity-50 z-10 items-center justify-center"
+                        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 bg-luxury-black/90 hover:bg-luxury-black text-white shadow-lg p-3 transition-all duration-200 disabled:opacity-50 z-10 items-center justify-center"
                         aria-label={language === 'th' ? 'ก่อนหน้า' : 'Previous'}
                     >
-                        <FiChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                        <FiChevronLeft className="w-6 h-6" />
                     </button>
                     
                     <button
                         onClick={nextSlide}
                         disabled={isTransitioning}
-                        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white dark:bg-gray-800/90 dark:hover:bg-gray-800 shadow-lg rounded-full p-2 transition-all duration-200 disabled:opacity-50 z-10 items-center justify-center"
+                        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 bg-luxury-black/90 hover:bg-luxury-black text-white shadow-lg p-3 transition-all duration-200 disabled:opacity-50 z-10 items-center justify-center"
                         aria-label={language === 'th' ? 'ถัดไป' : 'Next'}
                     >
-                        <FiChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                        <FiChevronRight className="w-6 h-6" />
                     </button>
                 </>
             )}
@@ -178,10 +178,10 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({ tiers }) => {
                             key={index}
                             onClick={() => goToSlide(index)}
                             disabled={isTransitioning}
-                            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                            className={`h-3 transition-all duration-200 ${
                                 index === currentIndex
-                                    ? 'bg-primary scale-110' 
-                                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                                    ? 'w-10 bg-primary' 
+                                    : 'w-3 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
                             }`}
                             aria-label={`${t.pricingUI.viewSeries} ${index + 1}`}
                         />

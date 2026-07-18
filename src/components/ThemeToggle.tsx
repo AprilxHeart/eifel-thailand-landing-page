@@ -14,7 +14,7 @@ export const ThemeToggle = () => {
 
   if (!mounted) {
     return (
-      <button className="p-2 rounded-md bg-gray-200 dark:bg-gray-800">
+      <button className="bg-white/10 p-2 text-white">
         <div className="w-5 h-5" />
       </button>
     );
@@ -23,13 +23,13 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors"
+      className="bg-white/10 p-2 text-white transition-colors hover:bg-white/18"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
         <HiOutlineSun className="w-5 h-5 text-yellow-500" />
       ) : (
-        <HiOutlineMoon className="w-5 h-5 text-gray-700" />
+        <HiOutlineMoon className="w-5 h-5 text-white" />
       )}
     </button>
   );
