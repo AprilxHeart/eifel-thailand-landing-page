@@ -76,15 +76,6 @@ const HomePage: React.FC = () => {
         >
           <Testimonials />
         </Section>
-
-        {/* FAQ Section */}
-        <Section
-          id="faq"
-          title={t.faq.title}
-          description={t.faq.subtitle}
-        >
-          <FAQ />
-        </Section>
       </Container>
 
       {/* Team Section */}
@@ -94,6 +85,11 @@ const HomePage: React.FC = () => {
 
       {/* Working Environment */}
       <WorkingEnvironment />
+
+      <Container>
+        {/* FAQ Section */}
+        <FAQ />
+      </Container>
 
       {/* Contact Section */}
       <Contact />

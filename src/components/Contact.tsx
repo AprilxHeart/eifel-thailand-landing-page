@@ -78,11 +78,11 @@ const Contact: React.FC = () => {
         <section id="contact" className="section-band bg-background py-20">
             <div className="relative mx-auto max-w-7xl px-5">
                 <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-                    <div className="bg-luxury-black p-8 text-white shadow-2xl md:p-10">
-                        <p className="text-sm font-semibold uppercase text-[var(--signal)]">
+                    <div className="surface-card-dark rounded-[2rem] bg-luxury-black p-8 text-white shadow-2xl md:p-10">
+                        <p className="eyebrow text-sm font-semibold uppercase text-[var(--signal)]">
                             {language === 'th' ? 'ติดต่อทีมไทย' : 'Contact the Thai team'}
                         </p>
-                        <h2 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
+                        <h2 className="display-face mt-4 text-3xl font-bold leading-tight md:text-5xl">
                             {t.contact.title}
                         </h2>
                         <p className="mt-5 text-base leading-8 text-white/75">
@@ -92,28 +92,28 @@ const Contact: React.FC = () => {
                         </p>
 
                         <div className="mt-8 space-y-5">
-                            <a href={`tel:${siteDetails.companyInfo.phone}`} className="flex items-start gap-4 border border-white/12 bg-white/8 p-4 transition hover:bg-white/12">
+                            <a href={`tel:${siteDetails.companyInfo.phone}`} className="pressable flex items-start gap-4 rounded-[1.35rem] border border-white/[0.12] bg-white/[0.08] p-4 hover:bg-white/[0.12]">
                                 <FiPhoneCall className="mt-1 h-5 w-5 shrink-0 text-[var(--signal)]" />
                                 <div>
                                     <p className="font-semibold">{siteDetails.companyInfo.phone}</p>
                                     <p className="text-sm text-white/65">{siteDetails.companyInfo.alternativePhones?.join(', ')}</p>
                                 </div>
                             </a>
-                            <a href={`mailto:${siteDetails.companyInfo.email}`} className="flex items-start gap-4 border border-white/12 bg-white/8 p-4 transition hover:bg-white/12">
+                            <a href={`mailto:${siteDetails.companyInfo.email}`} className="pressable flex items-start gap-4 rounded-[1.35rem] border border-white/[0.12] bg-white/[0.08] p-4 hover:bg-white/[0.12]">
                                 <FiMail className="mt-1 h-5 w-5 shrink-0 text-[var(--signal)]" />
                                 <div>
                                     <p className="font-semibold">{siteDetails.companyInfo.email}</p>
                                     <p className="text-sm text-white/65">{siteDetails.companyInfo.alternativeEmail}</p>
                                 </div>
                             </a>
-                            <div className="flex items-start gap-4 border border-white/12 bg-white/8 p-4">
+                            <div className="flex items-start gap-4 rounded-[1.35rem] border border-white/[0.12] bg-white/[0.08] p-4">
                                 <FiMapPin className="mt-1 h-5 w-5 shrink-0 text-[var(--signal)]" />
                                 <p className="text-sm leading-7 text-white/75">{siteDetails.companyInfo.address}</p>
                             </div>
                         </div>
                     </div>
 
-                    <form onSubmit={submitEmail} className="steel-panel p-6 md:p-8">
+                    <form onSubmit={submitEmail} className="steel-panel rounded-[2rem] p-6 md:p-8">
                         <div className="grid gap-5 md:grid-cols-2">
                             <Field
                                 label={t.contact.form.name}
@@ -151,7 +151,7 @@ const Contact: React.FC = () => {
                             <select
                                 value={form.productType}
                                 onChange={(event) => updateField('productType', event.target.value)}
-                                className="mt-2 min-h-[52px] w-full border border-black/10 bg-white px-4 text-foreground outline-none transition focus:border-primary dark:border-white/10 dark:bg-black/20"
+                                className="mt-2 min-h-[52px] w-full rounded-[1.2rem] border border-black/10 bg-white px-4 text-foreground outline-none transition-colors focus:border-primary dark:border-white/10 dark:bg-black/20"
                                 required
                             >
                                 <option value="">{t.contact.form.selectProduct}</option>
@@ -169,7 +169,7 @@ const Contact: React.FC = () => {
                                 value={form.message}
                                 onChange={(event) => updateField('message', event.target.value)}
                                 rows={5}
-                                className="mt-2 w-full border border-black/10 bg-white px-4 py-3 text-foreground outline-none transition focus:border-primary dark:border-white/10 dark:bg-black/20"
+                                className="mt-2 w-full rounded-[1.2rem] border border-black/10 bg-white px-4 py-3 text-foreground outline-none transition-colors focus:border-primary dark:border-white/10 dark:bg-black/20"
                                 placeholder={t.contact.form.messagePlaceholder}
                             />
                         </label>
@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
 
                         <button
                             type="submit"
-                            className="mt-6 inline-flex min-h-[56px] w-full items-center justify-center gap-3 bg-primary px-6 py-4 font-semibold text-white shadow-xl transition hover:bg-primary-accent"
+                            className="pressable mt-6 inline-flex min-h-[56px] w-full items-center justify-center gap-3 rounded-[1.2rem] bg-primary px-6 py-4 font-semibold text-white shadow-xl hover:bg-primary-accent"
                         >
                             <FiSend className="h-5 w-5" />
                             {language === 'th' ? 'ส่งอีเมลถึงทีม EIFEL' : 'Email EIFEL team'}
@@ -212,7 +212,7 @@ const Field = ({ label, value, onChange, placeholder, type = 'text', required = 
             onChange={(event) => onChange(event.target.value)}
             placeholder={placeholder}
             required={required}
-            className="mt-2 min-h-[52px] w-full border border-black/10 bg-white px-4 text-foreground outline-none transition focus:border-primary dark:border-white/10 dark:bg-black/20"
+            className="mt-2 min-h-[52px] w-full rounded-[1.2rem] border border-black/10 bg-white px-4 text-foreground outline-none transition-colors focus:border-primary dark:border-white/10 dark:bg-black/20"
         />
     </label>
 );

@@ -27,12 +27,12 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
 
     return (
         <div className={clsx(
-            "w-full max-w-sm mx-auto bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 lg:max-w-full h-full flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl", 
-            { "shadow-xl border-primary dark:border-primary ring-2 ring-primary ring-opacity-20": highlight }
+            "surface-card w-full max-w-sm mx-auto rounded-[1.8rem] lg:max-w-full h-full flex flex-col overflow-hidden transition-[transform,box-shadow,outline-color] duration-300 hover:-translate-y-1 hover:shadow-xl", 
+            { "shadow-xl outline outline-2 outline-primary/20 ring-1 ring-primary/30": highlight }
         )}>
             {/* Product Image */}
             {imageSrc && (
-                <div className="relative h-56 w-full bg-[var(--industrial-steel)]">
+                <div className="image-outline relative h-56 w-full overflow-hidden bg-[var(--industrial-steel)]">
                     <Image
                         src={imageSrc}
                         alt={name}
@@ -69,22 +69,22 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
                         <div className="flex gap-2">
                             <a 
                                 href={`tel:${siteDetails.companyInfo.phone}`}
-                                className="p-2 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors group"
+                                className="pressable group flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30"
                                 aria-label={language === 'th' ? 'โทรสอบถาม' : 'Call for inquiry'}
                             >
-                                <FiPhone className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                                <FiPhone className="w-4 h-4 text-primary transition-transform duration-200 group-hover:scale-110" />
                             </a>
                             <a 
                                 href={mailHref}
-                                className="p-2 bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors group"
+                                className="pressable group flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30"
                                 aria-label={language === 'th' ? 'อีเมลสอบถาม' : 'Email inquiry'}
                             >
-                                <FiMail className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                                <FiMail className="w-4 h-4 text-primary transition-transform duration-200 group-hover:scale-110" />
                             </a>
                         </div>
                     </div>
                     <a href={mailHref} className={clsx(
-                        "flex min-h-[48px] w-full items-center justify-center py-3 px-4 transition-all duration-300 font-semibold", 
+                        "pressable flex min-h-[48px] w-full items-center justify-center rounded-[1rem] py-3 px-4 font-semibold", 
                         { 
                             "bg-primary hover:bg-primary-accent text-white shadow-lg": highlight, 
                             "bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-secondary dark:text-gray-200 hover:text-primary dark:hover:text-primary": !highlight 

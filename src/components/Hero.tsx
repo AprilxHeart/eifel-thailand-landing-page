@@ -45,14 +45,14 @@ const Hero: React.FC = () => {
 
             <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
                 <div className="max-w-3xl">
-                    <div className="mb-6 inline-flex items-center gap-2 border-l-4 border-[var(--signal)] bg-white/10 px-4 py-3 text-sm font-medium text-white backdrop-blur">
+                    <div className="eyebrow mb-6 inline-flex items-center gap-2 border-l-4 border-[var(--signal)] bg-white/10 px-4 py-3 text-sm font-medium text-white backdrop-blur">
                         <FiShield className="h-4 w-4 text-[var(--signal)]" />
                         {language === 'th'
                             ? 'ตัวแทนจำหน่ายและทีมบริการ EIFEL ในประเทศไทย'
                             : 'EIFEL distributor and service team in Thailand'}
                     </div>
                 
-                    <h1 className="max-w-4xl text-5xl font-bold leading-[1.08] text-white md:text-6xl lg:text-7xl">
+                    <h1 className="display-face max-w-4xl text-5xl font-bold leading-[1.02] text-white md:text-6xl lg:text-7xl">
                         Eifel Thailand
                     </h1>
                 
@@ -69,14 +69,14 @@ const Hero: React.FC = () => {
                     <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                         <Link 
                             href="#pricing" 
-                            className="group inline-flex min-h-[52px] items-center justify-center gap-3 bg-primary px-7 py-4 text-base font-semibold text-white shadow-2xl shadow-black/25 transition hover:bg-primary-accent"
+                            className="pressable group inline-flex min-h-[52px] items-center justify-center gap-3 bg-primary px-7 py-4 text-base font-semibold text-white shadow-2xl shadow-black/25 hover:bg-primary-accent"
                         >
                             {t.hero.ctaPrimary}
                             <FiArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
                         </Link>
                         <Link 
                             href="#contact" 
-                            className="inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/45 bg-white/10 px-7 py-4 text-base font-semibold text-white backdrop-blur transition hover:bg-white hover:text-foreground"
+                            className="pressable inline-flex min-h-[52px] items-center justify-center gap-3 border border-white/45 bg-white/10 px-7 py-4 text-base font-semibold text-white backdrop-blur hover:bg-white hover:text-foreground"
                         >
                             <FiMail className="h-5 w-5" />
                             {t.hero.ctaSecondary}
@@ -85,10 +85,10 @@ const Hero: React.FC = () => {
 
                     <div className="mt-9 grid max-w-2xl grid-cols-2 gap-px overflow-hidden border border-white/16 bg-white/16 text-sm sm:grid-cols-4">
                         {[
-                            { value: 'UL', label: language === 'th' ? 'Fire pump' : 'Fire pump' },
-                            { value: 'ISO', label: language === 'th' ? 'Quality system' : 'Quality system' },
+                            { value: 'UL', label: language === 'th' ? 'ปั๊มดับเพลิง' : 'Fire pump' },
+                            { value: 'ISO', label: language === 'th' ? 'ระบบคุณภาพ' : 'Quality system' },
                             { value: 'TH', label: language === 'th' ? 'ทีมไทย' : 'Local team' },
-                            { value: 'Service', label: language === 'th' ? 'ซ่อมและอะไหล่' : 'Repair and parts' },
+                            { value: 'CARE', label: language === 'th' ? 'ซ่อมและอะไหล่' : 'Repair and parts' },
                         ].map((item) => (
                             <div key={item.value} className="bg-black/25 px-4 py-4 backdrop-blur">
                                 <div className="text-xl font-bold text-white">{item.value}</div>
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
 
                 <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
                     <div className="absolute inset-x-8 bottom-4 h-24 bg-primary/30 blur-3xl" />
-                    <div className="relative ml-auto border border-white/18 bg-white/10 p-4 shadow-2xl backdrop-blur-md">
+                    <div className="image-outline relative ml-auto border border-white/18 bg-white/10 p-4 shadow-2xl backdrop-blur-md">
                         <div className="relative aspect-[4/3] overflow-hidden bg-white">
                             <Image
                                 src={heroDetails.centerImageSrc}
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
                     </div>
                     <a
                         href={`tel:${siteDetails.companyInfo.phone}`}
-                        className="absolute -bottom-5 right-4 inline-flex min-h-[52px] items-center gap-3 bg-[var(--signal)] px-5 py-3 text-sm font-bold text-luxury-black shadow-xl transition hover:brightness-105 sm:right-8"
+                        className="pressable absolute -bottom-5 right-4 inline-flex min-h-[52px] items-center gap-3 bg-[var(--signal)] px-5 py-3 text-sm font-bold text-luxury-black shadow-xl hover:brightness-105 sm:right-8"
                     >
                         <FiPhoneCall className="h-5 w-5" />
                         {siteDetails.companyInfo.phone}
@@ -136,7 +136,7 @@ const Hero: React.FC = () => {
                 <div className="grid gap-4 text-white/76 md:grid-cols-3">
                     <div>
                         <p className="text-sm font-semibold text-white">
-                            {language === 'th' ? 'Industrial pump supply' : 'Industrial pump supply'}
+                            {language === 'th' ? 'กลุ่มปั๊มอุตสาหกรรม' : 'Industrial pump supply'}
                         </p>
                         <p className="mt-1 text-sm">
                             {language === 'th' ? 'ปั๊มอุตสาหกรรม ปั๊มน้ำเสีย ปั๊มสุญญากาศ' : 'Industrial, wastewater, and vacuum pump series'}
@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
                     </div>
                     <div>
                         <p className="text-sm font-semibold text-white">
-                            {language === 'th' ? 'Fire protection' : 'Fire protection'}
+                            {language === 'th' ? 'ระบบดับเพลิง' : 'Fire protection'}
                         </p>
                         <p className="mt-1 text-sm">
                             {language === 'th' ? 'ปั๊มดับเพลิงซีรีส์ EHF / ESF สำหรับระบบความปลอดภัย' : 'EHF / ESF fire pump series for safety systems'}
@@ -152,7 +152,7 @@ const Hero: React.FC = () => {
                     </div>
                     <div>
                         <p className="text-sm font-semibold text-white">
-                            {language === 'th' ? 'Local service team' : 'Local service team'}
+                            {language === 'th' ? 'ทีมบริการในไทย' : 'Local service team'}
                         </p>
                         <p className="mt-1 text-sm">
                             {language === 'th' ? 'ให้คำปรึกษา ออกแบบ ติดตั้ง ซ่อม และจัดหาอะไหล่' : 'Consulting, installation, repair, and spare parts sourcing'}

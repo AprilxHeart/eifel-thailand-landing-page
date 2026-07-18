@@ -9,8 +9,8 @@ export const en = {
     features: 'Features',
     services: 'Services',
     products: 'Products',
-    reviews: 'Reviews',
-    team: 'Team',
+    reviews: 'Why EIFEL',
+    team: 'Thai Team',
     faq: 'FAQ',
     contact: 'Contact Us',
     toggleTheme: 'Toggle Theme',
@@ -35,8 +35,8 @@ export const en = {
 
   // Stats Section
   stats: {
-    title: 'Numbers That Prove Excellence',
-    subtitle: 'Experience and expertise accumulated over time, creating confidence for customers'
+    title: 'Manufacturer overview',
+    subtitle: 'The key facts behind founding, factory scale, product breadth, and testing capability'
   },
   
   // Features
@@ -65,8 +65,8 @@ export const en = {
   
   // Testimonials
   testimonials: {
-    title: 'Customer Reviews',
-    subtitle: 'Decision-driving proof points for operations, engineering, and procurement teams'
+    title: 'Why operations and procurement teams shortlist EIFEL',
+    subtitle: 'The decision drivers that make the brand easier to evaluate for engineering, maintenance, and buying teams'
   },
   
   // Team

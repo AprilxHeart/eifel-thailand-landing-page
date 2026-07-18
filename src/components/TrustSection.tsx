@@ -35,7 +35,7 @@ const TrustSection: React.FC = () => {
       <Container>
         <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase text-primary">
+            <p className="eyebrow text-sm font-semibold uppercase text-primary">
               {language === 'th' ? 'เอกสารและมาตรฐาน' : 'Documents and standards'}
             </p>
             <h2 className="mt-3 max-w-xl text-3xl font-bold leading-tight text-foreground md:text-5xl">
@@ -43,19 +43,48 @@ const TrustSection: React.FC = () => {
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-foreground-accent">
               {language === 'th'
-                ? 'ใช้ข้อมูลมาตรฐานที่พบในเอกสารแบรนด์และภาพใบรับรองจริงเป็นแกน แยกให้ชัดระหว่างผู้ผลิต EIFEL และทีมบริการไทย เพื่อให้เว็บน่าเชื่อถือขึ้นทันที'
-                : 'The section now leads with documented standards and real certificate imagery, while clearly separating EIFEL manufacturing credentials from Thai local service.'}
+                ? 'มาตรฐานการผลิต ใบรับรอง และทีมบริการในประเทศไทยคือสามส่วนที่ช่วยให้ลูกค้าประเมินความเหมาะสมของแบรนด์ได้เร็วขึ้น'
+                : 'Manufacturing standards, certification evidence, and local Thai service make the brand easier to evaluate for engineering and procurement teams.'}
             </p>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="surface-card rounded-[1.75rem] p-5">
+                <p className="eyebrow text-xs font-semibold uppercase text-primary">
+                  {language === 'th' ? 'ผู้ผลิต' : 'Manufacturer'}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold text-foreground">
+                  Eifel Pump (Fuzhou) Corpn., Ltd.
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-foreground-accent">
+                  {language === 'th'
+                    ? 'ฝั่งผู้ผลิตเป็นแหล่งอ้างอิงเรื่องมาตรฐาน เอกสารรับรอง และข้อมูลโรงงานที่ใช้ประกอบการตัดสินใจ'
+                    : 'The manufacturer side anchors the certifications, standards, and factory credentials used throughout the page.'}
+                </p>
+              </div>
+              <div className="surface-card rounded-[1.75rem] p-5">
+                <p className="eyebrow text-xs font-semibold uppercase text-primary">
+                  {language === 'th' ? 'ทีมในประเทศไทย' : 'Thailand representative'}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold text-foreground">
+                  {language === 'th' ? 'วอเตอร์เทค เซลล์ แอนด์ เซอร์วิส' : 'Watertech Sales and Service'}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-foreground-accent">
+                  {language === 'th'
+                    ? 'ตัวแทนไทยรับบทในงานคัดสเปก ประสานติดตั้ง ซ่อมบำรุง และจัดหาอะไหล่เพื่อให้หน้างานเดินต่อได้'
+                    : 'The Thai representative carries local consultation, installation coordination, repair, and spare-parts continuity.'}
+                </p>
+              </div>
+            </div>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {[
-                { icon: FiShield, label: language === 'th' ? 'Fire pump standards' : 'Fire pump standards' },
+                { icon: FiShield, label: language === 'th' ? 'มาตรฐานปั๊มดับเพลิง' : 'Fire pump standards' },
                 { icon: FiFileText, label: language === 'th' ? 'เอกสารตรวจสอบได้' : 'Traceable documents' },
                 { icon: FiAward, label: language === 'th' ? 'ทีมไทยดูแลต่อ' : 'Local Thai support' },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.label} className="border border-black/10 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+                  <div key={item.label} className="surface-card rounded-[1.4rem] p-4">
                     <Icon className="h-5 w-5 text-primary" />
                     <p className="mt-3 text-sm font-semibold text-foreground">{item.label}</p>
                   </div>
@@ -66,8 +95,8 @@ const TrustSection: React.FC = () => {
 
           <div className="grid gap-4 md:grid-cols-3">
             {proofItems.map((cert) => (
-              <div key={cert.name} className="border border-black/10 bg-white p-4 shadow-lg dark:border-white/10 dark:bg-white/5">
-                <div className="relative h-44 overflow-hidden bg-gray-100 dark:bg-black/20">
+              <div key={cert.name} className="surface-card rounded-[1.8rem] p-4">
+                <div className="image-outline relative h-44 overflow-hidden rounded-[1.15rem] bg-gray-100 dark:bg-black/20">
                   <Image
                     src={cert.image}
                     alt={cert.name}

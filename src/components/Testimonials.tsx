@@ -27,8 +27,12 @@ const Testimonials: React.FC = () => {
     }
 
     const themes = language === 'th'
-        ? ['ลด Downtime', 'ผ่านมาตรฐานมั่นใจ', 'ซัพพอร์ตไวในไทย']
-        : ['Lower Downtime', 'Audit Ready', 'Fast Local Support'];
+        ? [
+            'ลด Downtime หน้างาน',
+            'คุยสเปกและมาตรฐานได้ชัด',
+            'มีทีมไทยดูแลต่อเนื่อง'
+        ]
+        : ['Lower downtime', 'Clearer compliance conversations', 'Local Thai support'];
 
     return (
         <div className="mx-auto grid w-full max-w-lg gap-6 lg:max-w-full lg:grid-cols-3">
@@ -43,8 +47,11 @@ const Testimonials: React.FC = () => {
                         </span>
                     </div>
 
-                    <p className="text-xl font-semibold leading-relaxed text-foreground md:text-2xl">
-                        “{testimonial.message}”
+                    <h3 className="text-xl font-semibold text-foreground md:text-2xl">
+                        {themes[index] ?? 'Trusted performance'}
+                    </h3>
+                    <p className="mt-4 text-base leading-8 text-foreground-accent">
+                        {testimonial.message}
                     </p>
 
                     <div className="mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-[var(--signal)]" />

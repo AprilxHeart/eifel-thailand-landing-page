@@ -58,7 +58,9 @@ const FAQ: React.FC = () => {
             <section id="faq" className="py-10 lg:py-20">
                 <div className="flex flex-col lg:flex-row gap-10">
                     <div className="">
-                        <p className="hidden lg:block text-foreground-accent dark:text-gray-400">FAQ&apos;S</p>
+                        <p className="eyebrow hidden text-sm font-semibold uppercase text-foreground-accent dark:text-gray-400 lg:block">
+                            {t.nav.faq}
+                        </p>
                         <SectionTitle>
                             <h2 className="my-3 !leading-snug lg:max-w-sm text-center lg:text-left text-gray-900 dark:text-gray-100">
                                 {t.faq.title}
@@ -81,7 +83,7 @@ const FAQ: React.FC = () => {
                                 <Disclosure>
                                     {({ open }) => (
                                         <>
-                                            <DisclosureButton className="flex items-center justify-between w-full px-4 pt-7 text-lg text-left border-t dark:border-gray-700">
+                                            <DisclosureButton className="pressable flex w-full items-center justify-between border-t px-4 pt-7 text-left text-lg dark:border-gray-700">
                                                 <span className="text-2xl font-semibold text-gray-900 dark:text-gray-100">{faq.question}</span>
                                                 {open ? <BiMinus className="w-5 h-5 text-secondary dark:text-blue-400" /> : <BiPlus className="w-5 h-5 text-secondary dark:text-blue-400" />}
                                             </DisclosureButton>

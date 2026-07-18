@@ -153,7 +153,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({ tiers }) => {
                     <button
                         onClick={prevSlide}
                         disabled={isTransitioning}
-                        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 bg-luxury-black/90 hover:bg-luxury-black text-white shadow-lg p-3 transition-all duration-200 disabled:opacity-50 z-10 items-center justify-center"
+                        className="pressable hidden md:flex absolute left-2 top-1/2 z-10 -translate-y-1/2 items-center justify-center rounded-full bg-luxury-black/90 p-3 text-white shadow-lg hover:bg-luxury-black disabled:opacity-50"
                         aria-label={language === 'th' ? 'ก่อนหน้า' : 'Previous'}
                     >
                         <FiChevronLeft className="w-6 h-6" />
@@ -162,7 +162,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({ tiers }) => {
                     <button
                         onClick={nextSlide}
                         disabled={isTransitioning}
-                        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 bg-luxury-black/90 hover:bg-luxury-black text-white shadow-lg p-3 transition-all duration-200 disabled:opacity-50 z-10 items-center justify-center"
+                        className="pressable hidden md:flex absolute right-2 top-1/2 z-10 -translate-y-1/2 items-center justify-center rounded-full bg-luxury-black/90 p-3 text-white shadow-lg hover:bg-luxury-black disabled:opacity-50"
                         aria-label={language === 'th' ? 'ถัดไป' : 'Next'}
                     >
                         <FiChevronRight className="w-6 h-6" />
@@ -178,7 +178,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({ tiers }) => {
                             key={index}
                             onClick={() => goToSlide(index)}
                             disabled={isTransitioning}
-                            className={`h-3 transition-all duration-200 ${
+                            className={`pressable h-3 rounded-full transition-[width,background-color,opacity] duration-200 ${
                                 index === currentIndex
                                     ? 'w-10 bg-primary' 
                                     : 'w-3 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'

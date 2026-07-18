@@ -54,7 +54,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
             <motion.div
                 className="grid items-center gap-8 border-b border-black/10 py-12 last:border-b-0 lg:grid-cols-2 lg:gap-16 dark:border-white/10"
                 variants={containerVariants}
-                initial="offscreen"
+                initial={false}
                 whileInView="onscreen"
                 viewport={{ once: true }}
             >
