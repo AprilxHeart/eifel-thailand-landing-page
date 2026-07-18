@@ -23,9 +23,9 @@ const Header: React.FC = () => {
 
     if (isLoading) {
         return (
-            <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
+            <header className="fixed left-0 right-0 top-0 z-50 mx-auto w-full px-3 pt-3 sm:px-5 md:pt-4">
                 <Container className="!px-0">
-                    <nav className="shadow-md md:shadow-none bg-white dark:bg-gray-900 md:bg-transparent dark:md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+                    <nav className="header-shell mx-auto flex items-center justify-between px-5 py-3">
                         <LoadingSpinner size="sm" text="" />
                     </nav>
                 </Container>
@@ -34,64 +34,65 @@ const Header: React.FC = () => {
     }
 
     const menuItems = [
-        { text: t.nav.features, url: "#features" },
-        { text: t.nav.services, url: "#services" },
-        { text: t.nav.products, url: "#pricing" },
-        { text: t.nav.reviews, url: "#testimonials" },
-        { text: t.nav.team, url: "#team" },
-        { text: t.nav.faq, url: "#faq" },
-        { text: t.nav.contact, url: "#contact" }
+        { text: t.nav.features, url: '#features' },
+        { text: t.nav.services, url: '#services' },
+        { text: t.nav.products, url: '#pricing' },
+        { text: t.nav.reviews, url: '#testimonials' },
+        { text: t.nav.team, url: '#team' },
+        { text: t.nav.faq, url: '#faq' },
+        { text: t.nav.contact, url: '#contact' },
     ];
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 mx-auto w-full">
+        <header className="fixed left-0 right-0 top-0 z-50 mx-auto w-full px-3 pt-3 sm:px-5 md:pt-4">
             <Container className="!px-0">
-                <nav className="mx-auto flex items-center justify-between border-b border-white/10 bg-luxury-black/82 px-5 py-3 text-white shadow-lg backdrop-blur-xl md:mt-4 md:border md:px-6">
-                    {/* Logo */}
+                <nav className="header-shell mx-auto flex items-center justify-between gap-4 px-5 py-3 md:px-6">
                     <Link href="/" className="flex items-center gap-3">
-                        <Image 
-                            src="/images/Eifel_logo.png" 
-                            alt="EIFEL Logo" 
-                            width={40} 
-                            height={40}
-                            className="min-w-fit bg-white p-1"
+                        <Image
+                            src="/images/Eifel_logo.png"
+                            alt="EIFEL Logo"
+                            width={44}
+                            height={44}
+                            className="min-w-fit rounded-2xl bg-white p-1.5 shadow-sm"
                         />
-                        <span className="manrope text-lg font-semibold text-white cursor-pointer">
-                            {siteDetails.siteName}
-                        </span>
+                        <div className="min-w-0">
+                            <span className="header-brand block cursor-pointer text-base font-semibold sm:text-lg">
+                                {siteDetails.siteName}
+                            </span>
+                            <span className="hidden text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--foreground-accent)] sm:block">
+                                Industrial Pump Solutions
+                            </span>
+                        </div>
                     </Link>
 
-                    {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6 items-center">
+                    <ul className="hidden items-center gap-1 lg:flex">
                         {menuItems.map(item => (
                             <li key={item.text}>
-                                <Link href={item.url} className="text-white/78 hover:text-white transition-colors">
+                                <Link href={item.url} className="header-link px-3 py-2 text-sm font-medium">
                                     {item.text}
                                 </Link>
                             </li>
                         ))}
-                        
-                        {/* Theme and Language Toggles */}
-                        <li className="flex items-center gap-2">
+
+                        <li className="ml-2 flex items-center gap-2">
                             <ThemeToggle />
                             <LanguageToggle />
                         </li>
-                        
+
                         <li>
-                            <Link href="#contact" className="bg-[var(--signal)] px-6 py-2 text-sm font-semibold text-luxury-black transition hover:brightness-105">
+                            <Link href="#contact" className="header-cta px-5 py-2.5 text-sm font-semibold">
                                 {t.nav.contact}
                             </Link>
                         </li>
                     </ul>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center gap-2">
+                    <div className="flex items-center gap-2 lg:hidden">
                         <ThemeToggle />
                         <LanguageToggle />
                         <button
                             onClick={toggleMenu}
                             type="button"
-                            className="bg-primary text-white focus:outline-none w-11 h-11 flex items-center justify-center"
+                            className="header-control flex h-11 w-11 items-center justify-center rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--signal)]"
                             aria-controls="mobile-menu"
                             aria-expanded={isOpen}
                         >
@@ -106,7 +107,6 @@ const Header: React.FC = () => {
                 </nav>
             </Container>
 
-            {/* Mobile Menu with Transition */}
             <Transition
                 show={isOpen}
                 enter="transition ease-out duration-200 transform"
@@ -116,21 +116,31 @@ const Header: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                <div id="mobile-menu" className="md:hidden border-b border-white/10 bg-luxury-black/95 text-white shadow-lg backdrop-blur-xl">
-                    <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
-                        {menuItems.map(item => (
-                            <li key={item.text}>
-                                <Link href={item.url} className="block text-white/82 hover:text-white" onClick={toggleMenu}>
-                                    {item.text}
+                <div className="px-3 pb-3 sm:px-5 lg:hidden">
+                    <div id="mobile-menu" className="header-shell mt-3 overflow-hidden px-2 py-3">
+                        <ul className="flex flex-col gap-1 px-2">
+                            {menuItems.map(item => (
+                                <li key={item.text}>
+                                    <Link
+                                        href={item.url}
+                                        className="header-link block rounded-2xl px-4 py-3 text-sm font-medium"
+                                        onClick={toggleMenu}
+                                    >
+                                        {item.text}
+                                    </Link>
+                                </li>
+                            ))}
+                            <li>
+                                <Link
+                                    href="#contact"
+                                    className="header-cta mt-2 block w-full px-4 py-3 text-center text-sm font-semibold"
+                                    onClick={toggleMenu}
+                                >
+                                    {t.nav.contact}
                                 </Link>
                             </li>
-                        ))}
-                        <li>
-                            <Link href="#contact" className="block w-fit bg-[var(--signal)] px-4 py-2 text-sm font-semibold text-luxury-black" onClick={toggleMenu}>
-                                {t.nav.contact}
-                            </Link>
-                        </li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </Transition>
         </header>

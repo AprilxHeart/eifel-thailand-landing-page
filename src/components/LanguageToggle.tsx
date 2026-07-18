@@ -8,8 +8,8 @@ export const LanguageToggle = () => {
 
   if (isLoading) {
     return (
-      <button className="bg-white/10 px-3 py-2 text-white">
-        <div className="w-6 h-4" />
+      <button className="header-control rounded-2xl px-3 py-2 text-sm font-semibold">
+        <div className="h-4 w-6" />
       </button>
     );
   }
@@ -22,10 +22,10 @@ export const LanguageToggle = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="bg-white/10 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/18"
+      className="header-control rounded-2xl px-3 py-2 text-sm font-semibold transition-colors"
       aria-label="Toggle language"
     >
-      {language === 'th' ? 'EN' : 'ไทย'}
+      {language === 'th' ? 'EN' : 'TH'}
     </button>
   );
 };
